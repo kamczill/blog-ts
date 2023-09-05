@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <div className='w-full min-h-screen overflow-x-hidden'>
+      <div className='w-full min-h-screen overflow-x-hidden relative'>
         <Navbar />
         <BrowserRouter>
           <Routes>
