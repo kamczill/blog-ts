@@ -2,12 +2,66 @@ import bg from './../../assets/header-bg.png'
 import wave from './../../assets/wave.svg'
 import FeaturePost from './FeaturePost'
 import Searcher from './Searcher'
+import { useEffect, useRef, useState } from 'react'
 
 const Header = () => {
+  const parentRef = useRef<HTMLDivElement>(null);
+  const parentRef2 = useRef<HTMLDivElement>(null);
+  const [imagesLoaded, setImagesLoaded] = useState<number>(0);
+
+  const setParentHeightToIncludeAbsoluteChildren = () => {
+    if (!parentRef.current || !parentRef2.current) return;
+
+    const parentElement = parentRef.current;
+    const parentElement2 = parentRef2.current;
+    let bottomMostPoint = 0;
+
+    if(parentElement && parentElement2){
+
+      Array.from(parentElement.children).forEach((child) => {
+        const childRect = child.getBoundingClientRect();
+        const parentRect = parentElement.getBoundingClientRect();
+        const relativeBottom = childRect.bottom - parentRect.top;
+        
+        if (relativeBottom > bottomMostPoint) {
+          bottomMostPoint = relativeBottom;
+        }
+      });
+      
+      parentElement2.style.height = `${bottomMostPoint}px`;
+    }
+  };
+
+  const handleImageLoad = () => {
+    setImagesLoaded((prev: number) => prev + 1);
+  };
+
+  useEffect(() => {
+    // Function to run when window resizes
+    const handleResize = () => {
+      if (imagesLoaded === 2) {
+        setParentHeightToIncludeAbsoluteChildren();
+      }
+    };
+
+    // Attach the event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up after component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [imagesLoaded]);
+
+  useEffect(() => {
+    if (imagesLoaded === 2) {
+      setParentHeightToIncludeAbsoluteChildren();
+    }
+  }, [imagesLoaded]);
   return (
-    <div className='w-full mt-[-55px] '>
-        <div className='w-full relative'>
-            <img src={bg} className='grayscale-[70%] w-screen h-[70vh] object-cover object-top md:object-contain md:h-full'/>
+    <div ref={parentRef2} className='w-full mt-[-55px] '>
+        <div ref={parentRef} className='w-full relative'>
+            <img src={bg} className='grayscale-[70%] w-screen h-[70vh] object-cover object-top md:object-contain md:h-full' onLoad={handleImageLoad}/>
             <div className='absolute max-w-screen w-[101vw] left-[-2px] bottom-[-1px]'>
               <img src={wave} className='w-full'/>
             </div>
@@ -15,8 +69,8 @@ const Header = () => {
               <h2 className='text-3xl font-bold'>
                 Our newsroom
               </h2>
-              <Searcher />
-              <FeaturePost />
+              <Searcher onImageLoad={handleImageLoad} />
+              <FeaturePost onImageLoad={handleImageLoad} />
             </div>
         </div>
     </div>

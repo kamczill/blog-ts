@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 const tags = ['Design', 'User Experience', 'User Interface']
 
-const Searcher = () => {
+const Searcher = ({onImageLoad}) => {
     const [searchValue, setSearchValue] = useState('')
   return (
     <div className='w-full max-w-[80%] md:max-w-[500px] flex flex-col gap-3'>
