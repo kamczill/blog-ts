@@ -1,3 +1,4 @@
+import CaseStudies from '../components/homepage/CaseStudies'
 import Header from '../components/homepage/Header'
 import PopularArticles from '../components/homepage/PopularArticles'
 import RecentArticles from '../components/homepage/RecentArticles'
@@ -8,6 +9,7 @@ const HomePage = () => {
         <Header />
         <PopularArticles />
         <RecentArticles />
+        <CaseStudies />
     </div>
   )
 }
