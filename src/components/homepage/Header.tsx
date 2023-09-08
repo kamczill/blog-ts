@@ -32,8 +32,8 @@ const Header = () => {
     }
   };
 
-  const handleImageLoad = () => {
-    setImagesLoaded((prev: number) => prev + 1);
+  const handleImageLoad: () => void = () => {
+    setImagesLoaded((prev) => prev + 1);
   };
 
   useEffect(() => {
@@ -59,13 +59,13 @@ const Header = () => {
     }
   }, [imagesLoaded]);
   return (
-    <div ref={parentRef2} className='w-full mt-[-55px] '>
+    <div ref={parentRef2} className='w-full'>
         <div ref={parentRef} className='w-full relative'>
             <img src={bg} className='grayscale-[70%] w-screen h-[70vh] object-cover object-top md:object-contain md:h-full' onLoad={handleImageLoad}/>
             <div className='absolute max-w-screen w-[101vw] left-[-2px] bottom-[-1px]'>
               <img src={wave} className='w-full'/>
             </div>
-            <div className='text-white absolute top-[40%] w-full flex flex-col justify-center items-center gap-5 z-[0] md:top-[40%] lg:top-[45%]' >
+            <div className='text-white absolute top-[35%] w-full flex flex-col justify-center items-center gap-5 z-[0] md:top-[30%] lg:top-[35%]' >
               <h2 className='text-3xl font-bold'>
                 Our newsroom
               </h2>

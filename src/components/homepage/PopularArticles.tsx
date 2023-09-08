@@ -1,15 +1,22 @@
-import React from 'react'
-import { RiArrowRightLine } from 'react-icons/ri'
+
+import FeatureArticle from './FeatureArticle'
+import ViewAllButton from '../ViewAllButton'
+import Heading from '../Heading'
+
 
 const PopularArticles = () => {
+  
   return (
-    <div className=' flex flex-col justify-center items-center gap-4 mx-6 font-os'>
-        <h2 className='text-2xl font-bold text-[#183B56]'>Popular Articles</h2>
-        <div className='flex flex-col items-center gap-3'>
-            <p className='text-[#5A7184] text-center'>We share common trends, strategies ideas, opinions, short & long stories from the team behind company.</p>
-            <button className='border-2 border-[#1565D8] text-[#1565D8] rounded-md p-2 flex justify-center items-center gap-2 w-full max-w-[200px]'>
-                View All <RiArrowRightLine className='' /> 
-                </button>
+    <div className=' flex flex-col justify-center items-center gap-4 px-6 font-os w-full max-w-[1100px] lg:gap-6 xl:px-0'>
+        <Heading 
+          title='Popular Articles'
+          description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'
+          showButton
+        />
+        <div className='flex flex-col gap-10 lg:flex-row'>
+          <FeatureArticle />
+          <FeatureArticle />
+          <ViewAllButton classes={'place-self-center lg:hidden'} />
         </div>
     </div>
   )
