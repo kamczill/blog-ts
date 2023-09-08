@@ -11,3 +11,12 @@ export interface headingProps {
   description: string;
   showButton?: boolean;
 }
+
+export interface featureArticleProps {
+  title: string;
+  avatarImg: string;
+  author: string;
+  date: string;
+  showBadge?: boolean;
+  badgeText?: string;
+}

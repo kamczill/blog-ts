@@ -1,16 +1,8 @@
+import { featureArticleProps } from '../../types'
 import img from './../../assets/article-img1.png'
-
 import {RiCheckFill} from 'react-icons/ri'
 
-export interface featureArticleProps {
 
-  showBadge?: boolean;
-  badgeText?: string;
-  title: string;
-  avatarImg: string;
-  author: string;
-  date: string;
-}
 
 const FeatureArticle = ({showBadge, badgeText, title, avatarImg, author, date}: featureArticleProps) => {
   return (
