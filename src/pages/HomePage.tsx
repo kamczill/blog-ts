@@ -1,6 +1,7 @@
 import AllArticles from '../components/homepage/AllArticles'
 import CaseStudies from '../components/homepage/CaseStudies'
 import Header from '../components/homepage/Header'
+import Newsletter from '../components/homepage/Newsletter'
 import PopularArticles from '../components/homepage/PopularArticles'
 import RecentArticles from '../components/homepage/RecentArticles'
 
@@ -12,6 +13,7 @@ const HomePage = () => {
         <RecentArticles />
         <CaseStudies />
         <AllArticles />
+        <Newsletter />
     </div>
   )
 }
