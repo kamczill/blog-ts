@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import FeaturePost from './homepage/FeaturePost'
+import {RiArrowRightFill, RiArrowLeftFill} from 'react-icons/ri'
+
 
 const Gallery = () => {
     const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -32,10 +34,6 @@ const Gallery = () => {
           <div className="keen-slider__slide">
             <FeaturePost />
           </div>
-          
-          {/* <div className="keen-slider__slide">4</div>
-          <div className="keen-slider__slide">5</div>
-          <div className="keen-slider__slide">6</div> */}
         </div>
         {loaded && instanceRef.current && (
           <>
@@ -88,25 +86,18 @@ function Arrow(props: {
     left?: boolean
     onClick: (e: any) => void
   }) {
-    const disabeld = props.disabled ? " arrow--disabled" : ""
+    const disabeld = props.disabled ? " fill-gray-400" : ""
     return (
-        <div className='arrow arrow-right p-2 bg-blue-100'>
-            <svg
-                onClick={props.onClick}
-                className={`arrow ${
-                props.left ? "arrow--left" : "arrow--right"
-                } ${disabeld}`}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-            >
+      <div onClick={props.onClick} className={`arrow__container ${
+        props.left ? "arrow--left" : "arrow--right"
+        } `}>
                 {props.left && (
-                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                <RiArrowLeftFill size={25} className={`text-black arrow ${disabeld}`} />
                 )}
                 {!props.left && (
-                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+                <RiArrowRightFill size={25} className={`text-black arrow ${disabeld}`}/>
                 )}
-            </svg>
-       </div>
+      </div>
     )
   }
   

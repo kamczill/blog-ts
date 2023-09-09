@@ -1,5 +1,5 @@
 export interface onImageLoadProps {
-    onImageLoad: () => void;
+    onImageLoad?: () => void;
 }
 
 export interface viewAllButtonProps {

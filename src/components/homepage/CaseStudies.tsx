@@ -7,7 +7,7 @@ import Gallery from '../Gallery'
 const CaseStudies = () => {
 
   return (
-    <div className='w-full max-w-[1100px] flex flex-col'>
+    <div className='w-full max-w-[1100px] flex flex-col p-6 lg:p-0'>
         <Heading 
             title='Case Studies'
             description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'

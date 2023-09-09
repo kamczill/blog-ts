@@ -30,15 +30,24 @@
     background: #000;
   }
   
-  .arrow {
-    width: 30px;
-    height: 30px;
+  .arrow__container{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    fill: #fff;
     cursor: pointer;
+    background-color: #1565D8;
+    border-radius: 50%;
+    padding:.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arrow {
+    width: 20px;
+    height: 20px;
+    fill: white;
   }
   
   .arrow--left {
