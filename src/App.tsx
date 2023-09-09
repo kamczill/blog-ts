@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { toggleTheme } from './features/ui/uiSlice'
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
+import Footer from './components/Footer';
 
 function App() {
   const colorTheme = useSelector((state: RootState) => state.ui.theme)
@@ -20,6 +21,7 @@ function App() {
             <Route path='/home' element={<HomePage />} />
           </Routes>
         </BrowserRouter>
+        <Footer />
       </div>
     </>
   )
