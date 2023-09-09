@@ -4,20 +4,20 @@ import {RiCheckFill} from 'react-icons/ri'
 
 
 
-const FeatureArticle = ({showBadge, badgeText, title, avatarImg, author, date}: featureArticleProps) => {
+const FeatureArticle = ({showBadge, badgeText, title, avatarImg, author, date, small}: featureArticleProps) => {
   return (
       <div className='relative rounded-xl'>
       <img src={img} className='w-full max-w-[550px] gradient rounded-lg'/>
       <div className='gradient absolute top-0 h-full w-full max-w-[550px]  rounded-lg'></div>
-      <div className={`absolute top-0 h-full w-full flex flex-col ${showBadge ? 'justify-between': 'justify-end'} p-[2rem]`}>
-        <div className={`${showBadge ? '': 'hidden'} bg-white rounded-xl text-[#36B37E] max-w-[100px] flex items-center justify-center`}>
+      <div className={`absolute top-0 h-full w-full flex flex-col ${showBadge ? 'lg:justify-between': 'lg:justify-end'} justify-end p-4 lg:p-[2rem]`}>
+        <div className={` hidden  bg-white rounded-xl text-[#36B37E] max-w-[100px] items-center justify-center lg:flex`}>
         {badgeText}
         </div>
-        <article className='p-2 flex flex-col gap-8'>
-          <h3 className='text-white text-2xl font-os '> 
+        <article className={`${small ? 'p-0': 'p-2'} lg:p-2 flex flex-col gap-8`}>
+          <h3 className={`text-white ${small ? 'text-sm': 'text-2xl'} font-os md:text-2xl`}> 
           {title}
           </h3>
-          <div className="flex justify-between  text-[#5A7184] pr- w-full">
+          <div className="hidden justify-between text-[#5A7184] pr- w-full lg:flex">
             <div className="flex items-center gap-2 w-full">
               <img src={avatarImg} className='max-w-[45px] max-h-[45px]' />
               <div className="flex flex-col">

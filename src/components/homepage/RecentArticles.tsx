@@ -4,7 +4,7 @@ import avatar from "./../../assets/Avatar@2x.png";
 
 const RecentArticles = () => {
   return (
-    <div className='w-full max-w-[1100px] flex flex-col gap-6'>
+    <div className='w-full max-w-[1100px] flex flex-col gap-6 px-6 xl:px-0'>
         <Heading
             title='Recent Articles'
             description="Here’s what we've been up to recently."

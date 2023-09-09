@@ -1,3 +1,4 @@
+import AllArticles from '../components/homepage/AllArticles'
 import CaseStudies from '../components/homepage/CaseStudies'
 import Header from '../components/homepage/Header'
 import PopularArticles from '../components/homepage/PopularArticles'
@@ -10,6 +11,7 @@ const HomePage = () => {
         <PopularArticles />
         <RecentArticles />
         <CaseStudies />
+        <AllArticles />
     </div>
   )
 }

@@ -6,7 +6,7 @@ import { onImageLoadProps } from "../../types";
 
 const FeaturePost = ({onImageLoad}: onImageLoadProps) => {
   return (
-    <div className="flex flex-col gap-2 p-5 mt-10 mx-6 shadow-md max-w-[1100px] rounded-md bg-white lg:flex-row lg:p-0 feature-post">
+    <div className="flex flex-col gap-2 p-5 mx-6 shadow-md max-w-[1100px] rounded-md bg-white lg:flex-row lg:p-0 feature-post">
       <div className="hidden lg:flex lg:w-1/2 lg:h-full lg:object-contain">
         <img src={img} className="w-full rounded-bl-lg rounded-tl-lg" onLoad={onImageLoad} />
       </div>

@@ -3,7 +3,8 @@ export interface onImageLoadProps {
 }
 
 export interface viewAllButtonProps {
-    classes: string
+    classes: string;
+    text?: string;
 }
 
 export interface headingProps {
@@ -19,4 +20,5 @@ export interface featureArticleProps {
   date: string;
   showBadge?: boolean;
   badgeText?: string;
+  small?: boolean;
 }
