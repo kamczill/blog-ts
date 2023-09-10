@@ -8,7 +8,7 @@ import avatar from "./../../assets/Avatar@2x.png";
 const PopularArticles = () => {
   
   return (
-    <div className=' flex flex-col justify-center items-center gap-4 px-6 font-os w-full max-w-[1100px] lg:gap-6 xl:px-0'>
+    <div className=' flex flex-col justify-center items-center gap-4 px-6 mt-[-50px] font-os w-full max-w-[1100px] lg:gap-6 lg:mt-[-96px] xl:px-0 xl:mt-0'>
         <Heading 
           title='Popular Articles'
           description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'

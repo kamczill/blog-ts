@@ -61,16 +61,20 @@ const Header = () => {
   return (
     <div ref={parentRef2} className='w-full'>
         <div ref={parentRef} className='w-full relative'>
-            <img src={bg} className='grayscale-[70%] w-screen h-[70vh] object-cover object-top md:object-contain md:h-full' onLoad={handleImageLoad}/>
+            <img src={bg} className='grayscale-[70%] w-screen h-[100vh] object-cover object-top md:object-contain md:h-full' onLoad={handleImageLoad}/>
             <div className='absolute max-w-screen w-[101vw] left-[-2px] bottom-[-1px]'>
               <img src={wave} className='w-full'/>
             </div>
-            <div className='text-white absolute top-[35%] w-full flex flex-col justify-center items-center gap-5 z-[0] md:top-[30%] lg:top-[35%]' >
+            <div className='text-white absolute top-[35%] w-full flex flex-col justify-center items-center gap-5 z-[0] md:top-[30%] lg:top-[30%]' >
               <h2 className='text-3xl font-bold'>
                 Our newsroom
               </h2>
+              <div className='flex justify-center'>
               <Searcher onImageLoad={handleImageLoad} />
-              <FeaturePost onImageLoad={handleImageLoad} />
+              </div>
+              <div className='hidden mt-[100px] xl:block 2xl:mt-[170px]'>
+                <FeaturePost onImageLoad={handleImageLoad} />
+              </div>
             </div>
         </div>
     </div>

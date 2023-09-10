@@ -5,7 +5,7 @@ import avatar from "./../../assets/Avatar@2x.png";
 
 const AllArticles = () => {
   return (
-    <div className='w-full max-w-[1100px] flex flex-col px-6 gap-6 xl:p-0'>
+    <div className='w-full max-w-[1100px] flex flex-col px-6 gap-4 xl:p-0'>
         <Heading 
             title='All Articles'
             description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'

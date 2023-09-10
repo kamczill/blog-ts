@@ -8,12 +8,12 @@ const Footer = () => {
           <h2 className='font-os font-semibold text-xl text-white text-center xl:text-4xl xl:text-start'>heya.</h2>
           <p className='font-os text-[#5A7184]'>Copyright © 2020. Crafted with love.</p>
         </div>
-          <div className='flex flex-wrap gap-12 font-os justify-center'>
+          <div className='w-full grid grid-cols-2 justify-between place-items-center items-start gap-12 lg:grid-cols-4	'>
               {
                 navigation.map(item => (
-                  <div>
+                  <div className="w-[120px] flex flex-col">
                     <h3 className='text-[#5A7184] font-bold'>{item.title}</h3>
-                    <ul className='mt-9 flex flex-col gap-6'>
+                    <ul className='mt-8 flex flex-col gap-6'>
                       {item.items.map(itemArr => (
                         <li className='text-[#959EAD]'><a href='#'>{itemArr}</a></li>
                       ))}
