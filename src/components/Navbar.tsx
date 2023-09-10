@@ -1,12 +1,26 @@
-import React, { useState } from 'react'
+import{ useState, useEffect } from 'react'
 import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi'
-import Header from './homepage/Header'
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
-    const handleToggleMenu = () => {
+    const handleToggleMenu: () => void = () => {
         setIsMenuOpen(!isMenuOpen)
     }
+
+    const hideOrShowOverflow: () => void = () => {
+        const body = document.querySelector('body')
+        if(isMenuOpen && body){
+            body.style.overflow = 'hidden'
+        } else if (!isMenuOpen && body){
+            body.style.overflow = ''
+        }
+    }
+
+
+    useEffect(() => {
+        hideOrShowOverflow();
+    }, [isMenuOpen])
     
   return (
     <div className='w-full flex justify-center items-center fixed z-[2]'>

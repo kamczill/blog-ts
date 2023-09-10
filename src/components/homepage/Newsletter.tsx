@@ -6,7 +6,7 @@ const Newsletter = () => {
     <div className=''>
         <img src={wave} className='w-full mb-[-1px]'/>
         <div className='bg-[#0D2436] flex justify-center pt-8'>
-            <div className='w-full flex flex-col px-6 lg:flex-row lg:items-center lg:px-6 lg:justify-between lg:max-w-[1100px]'>
+            <div className='w-full flex flex-col px-6 lg:flex-row lg:items-center lg:px-6 lg:justify-between lg:max-w-[1100px] xl:px-0'>
                 <div className='flex flex-col justify-center items-center gap-6 w-full lg:items-start lg:w-max'>
                     <h3 className='font-os text-white font-bold text-2xl w-full max-w-[500px]'>
                     Get our stories delivered From us to your inbox weekly.
