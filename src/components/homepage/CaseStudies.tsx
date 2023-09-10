@@ -1,6 +1,4 @@
-import React, { useRef, useEffect } from 'react'
 import Heading from '../Heading'
-import FeaturePost from './FeaturePost'
 import Gallery from '../Gallery'
 
 

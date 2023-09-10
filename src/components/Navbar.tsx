@@ -1,8 +1,9 @@
-import{ useState, useEffect } from 'react'
+import{ useState, useEffect, useRef } from 'react'
 import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi'
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const navbarRef = useRef<HTMLDivElement>(null);
 
     const handleToggleMenu: () => void = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -17,13 +18,36 @@ const Navbar = () => {
         }
     }
 
+    const setNavbarBackground: () => void = () => {
+        const navbar = navbarRef.current;
+        const scrollPosition = window.scrollY
+        const classes = ['backdrop-blur', 'backdrop-brightness-[.7]', 'border-b-2']
+        
+        if(scrollPosition > 100 && navbar){
+            if(!classes.some(el => navbar.classList.contains(el))){
+                navbar.classList.add(...classes)
+            }
+        } else if (navbar) {
+            navbar.classList.remove(...classes)
+        }
+
+    }
+    
+    useEffect(() => {
+
+        window.addEventListener('scroll', setNavbarBackground)
+        return () => {
+            window.removeEventListener('scroll', setNavbarBackground)
+        }
+    }, [])
+
 
     useEffect(() => {
         hideOrShowOverflow();
     }, [isMenuOpen])
     
   return (
-    <div className='w-full flex justify-center items-center fixed z-[2]'>
+    <div ref={navbarRef} className='w-full flex justify-center items-center fixed z-[20] pb-3 transition-all'>
         <div className='pt-3 px-6 grid grid-cols-3 align-center items-center relative w-full max-w-[1600px]'>
             <div className='col-start-2'>
                 <h2 className='font-os font-semibold text-3xl text-white text-center xl:text-4xl'>heya.</h2>
