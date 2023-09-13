@@ -38,7 +38,9 @@ const FeaturePost = ({onImageLoad, title, avatarImg, author, date, coverImage, c
         </div>
         <div className="w-full flex justify-between text-[#5A7184] pr-5">
           <div className="flex gap-2 w-full">
-            <img src={avatar} />
+            <div className="object-cover">
+              <img src={avatarImg} className="w-[50px] h-[50px] object-cover rounded-full"/>
+            </div>
             <div className="flex flex-col">
               <h4 className="font-semibold text-[#183B56]">Viola Manisa</h4>
               <div className="flex items-center gap-2">
