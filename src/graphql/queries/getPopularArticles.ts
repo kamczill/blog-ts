@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const GET_RECENT_ARTICLES = gql`
+export const GET_POPULAR_ARTICLES = gql`
 {
-    blogPostCollection(where: {contentfulMetadata: {tags: { id_contains_some: "popular"}}}) {
+    blogPostCollection(where: {contentfulMetadata: {tags: { id_contains_some: "popular"}}}, limit: 2) {
       total
       items {
         contentfulMetadata {

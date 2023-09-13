@@ -19,7 +19,7 @@ const FeatureArticle = ({showBadge, badgeText, coverImage, title, avatarImg, aut
           </h3>
           <div className="hidden justify-between text-[#5A7184] pr- w-full lg:flex">
             <div className="flex items-center gap-2 w-full">
-              <img src={avatarImg} className='max-w-[45px] max-h-[45px]' />
+              <img src={avatarImg} className='w-[50px] h-[50px] object-cover rounded-full' />
               <div className="flex flex-col">
                 <h4 className="font-semibold text-white">{author}</h4>
                 <div className="flex items-center gap-2">
