@@ -6,6 +6,7 @@ import avatar from "./../../assets/Avatar@2x.png";
 import { useQuery } from '@apollo/client';
 import { GET_POPULAR_ARTICLES } from '../../graphql/queries/getPopularArticles';
 import { useEffect, useState } from 'react';
+import { formatDate } from '../../utils/dateUtils';
 
 const PopularArticles = () => {
   const { loading, error, data } = useQuery(GET_POPULAR_ARTICLES)
@@ -36,7 +37,7 @@ const PopularArticles = () => {
               coverImage={article.coverImage.url}
               avatarImg={article.author.avatar.url} 
               author={`${article.author.name} ${article.author.surname}`} 
-              date='02 May'
+              date={formatDate(article.date)}
             />
           ))
         }
