@@ -5,6 +5,7 @@ import Searcher from './Searcher'
 import { useEffect, useRef, useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_LATEST_ARTICLE } from '../../graphql/queries/getLastestArticle'
+import { BounceLoader } from 'react-spinners'
 
 const Header = () => {
   const parentRef = useRef<HTMLDivElement>(null);
@@ -13,8 +14,8 @@ const Header = () => {
   const { loading, error, data } = useQuery(GET_LATEST_ARTICLE);
   
   useEffect(() => {
-    console.log(data)
-  },[])
+    if (error) console.log(error)
+  },[error])
 
   const setParentHeightToIncludeAbsoluteChildren = () => {
     if (!parentRef.current || !parentRef2.current) return;
@@ -80,6 +81,10 @@ const Header = () => {
               <Searcher onImageLoad={handleImageLoad} />
               </div>
               <div className='hidden mt-[100px] xl:block 2xl:mt-[170px]'>
+                {loading 
+                  ? <BounceLoader color="#36d7b7" />
+                  : ''
+                }
                 <FeaturePost 
                   onImageLoad={handleImageLoad} 
                   title={data?.blogPostCollection.items[0].title}
