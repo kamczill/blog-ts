@@ -3,11 +3,18 @@ import wave from './../../assets/wave.svg'
 import FeaturePost from './FeaturePost'
 import Searcher from './Searcher'
 import { useEffect, useRef, useState } from 'react'
+import { useQuery } from '@apollo/client'
+import { GET_LATEST_ARTICLE } from '../../graphql/queries/getLastestArticle'
 
 const Header = () => {
   const parentRef = useRef<HTMLDivElement>(null);
   const parentRef2 = useRef<HTMLDivElement>(null);
   const [imagesLoaded, setImagesLoaded] = useState<number>(0);
+  const { loading, error, data } = useQuery(GET_LATEST_ARTICLE);
+  
+  useEffect(() => {
+    console.log(data)
+  },[])
 
   const setParentHeightToIncludeAbsoluteChildren = () => {
     if (!parentRef.current || !parentRef2.current) return;
@@ -73,7 +80,15 @@ const Header = () => {
               <Searcher onImageLoad={handleImageLoad} />
               </div>
               <div className='hidden mt-[100px] xl:block 2xl:mt-[170px]'>
-                <FeaturePost onImageLoad={handleImageLoad} />
+                <FeaturePost 
+                  onImageLoad={handleImageLoad} 
+                  title={data?.blogPostCollection.items[0].title}
+                  avatarImg={data?.blogPostCollection.items[0].author.avatar.url}
+                  author={`${data?.blogPostCollection.items[0].author.name} ${data?.blogPostCollection.items[0].author.surname}`}
+                  date={data?.blogPostCollection.items[0].date}
+                  coverImage={data?.blogPostCollection.items[0].coverImage.url}
+                  content={data?.blogPostCollection.items[0].content}
+                />
               </div>
             </div>
         </div>

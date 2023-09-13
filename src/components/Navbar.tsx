@@ -21,7 +21,7 @@ const Navbar = () => {
     const setNavbarBackground: () => void = () => {
         const navbar = navbarRef.current;
         const scrollPosition = window.scrollY
-        const classes = ['backdrop-blur', 'backdrop-brightness-[.7]', 'border-b-2']
+        const classes = ['backdrop-blur', 'backdrop-brightness-[.7]', 'border-b-2', 'shadow-lg']
         
         if(scrollPosition > 100 && navbar){
             if(!classes.some(el => navbar.classList.contains(el))){

@@ -2,8 +2,16 @@ import Heading from '../Heading'
 import FeatureArticle from './FeatureArticle'
 import ViewAllButton from '../ViewAllButton'
 import avatar from "./../../assets/Avatar@2x.png";
+import { useQuery } from '@apollo/client';
+import { GET_RECENT_ARTICLES } from '../../graphql/queries/getRecentArticles';
 
 const AllArticles = () => {
+    const { loading, error, data } = useQuery(GET_RECENT_ARTICLES);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+    console.log(data)
+
   return (
     <div className='w-full max-w-[1100px] flex flex-col px-6 gap-4 xl:p-0'>
         <Heading 
@@ -14,8 +22,9 @@ const AllArticles = () => {
             <FeatureArticle 
                 showBadge
                 badgeText='HOME'
-                title='Motherhood is the hardest and the best job ever'
+                title={data?.blogPostCollection.items[0].title}
                 avatarImg={avatar}
+                coverImage={data?.blogPostCollection.items[0].coverImage.url}
                 author='Camilla Farenth'
                 date ='03 July'
                 small

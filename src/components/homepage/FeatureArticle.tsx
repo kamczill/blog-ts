@@ -4,10 +4,10 @@ import {RiCheckFill} from 'react-icons/ri'
 
 
 
-const FeatureArticle = ({showBadge, badgeText, title, avatarImg, author, date, small}: featureArticleProps) => {
+const FeatureArticle = ({showBadge, badgeText, coverImage, title, avatarImg, author, date, small}: featureArticleProps) => {
   return (
       <div className='relative rounded-xl'>
-      <img src={img} className='w-full max-w-[550px] gradient rounded-lg'/>
+      <img src={coverImage || img} className='w-full h-full max-w-[550px] gradient object-cover rounded-lg'/>
       <div className='gradient absolute top-0 h-full w-full max-w-[550px]  rounded-lg'></div>
       <div className={`absolute top-0 h-full w-full flex flex-col ${showBadge ? 'lg:justify-between': 'lg:justify-end'} justify-end p-4 lg:p-[2rem]`}>
         <div className={` hidden  bg-white rounded-xl text-[#36B37E] max-w-[100px] items-center justify-center lg:flex`}>
