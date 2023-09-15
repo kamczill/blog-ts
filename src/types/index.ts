@@ -61,3 +61,31 @@ export interface featurePostProps {
   coverImage?: string;
   content?: ApiResponse;
 }
+
+export interface Author{
+  avatar: {
+    url: string;
+  }
+  name: string;
+  surname: string;
+  __typename: string;
+}
+
+export interface CoverImage {
+  contentType: string;
+    description: string;
+    fileName: string;
+    height: number;
+    size: number;
+    title: string;
+    url: string;
+    width: number;
+    __typename: string;
+}
+
+export interface RecentArticle {
+  author: Author;
+  coverImage: CoverImage;
+  date: string;
+  title: string;
+}

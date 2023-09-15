@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_RECENT_ARTICLES = gql`
 {
-    blogPostCollection(order:date_ASC) {
+    blogPostCollection(order:date_ASC, limit: 3) {
       total
       items {
         date
