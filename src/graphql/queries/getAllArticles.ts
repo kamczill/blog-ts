@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const GET_CASE_STUDIES_ARTICLES = gql`
+export const GET_POPULAR_ARTICLES = gql`
 {
-    blogPostCollection(limit:3, where: {contentfulMetadata: {tags: { id_contains_some: "caseStudies"}}}) {
+    blogPostCollection(limit:5) {
       total
       items {
         contentfulMetadata {

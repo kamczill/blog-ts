@@ -1,39 +1,69 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import FeaturePost from './homepage/FeaturePost'
 import {RiArrowRightFill, RiArrowLeftFill} from 'react-icons/ri'
+import { BlogPost } from '../types'
+
+// Your component's props type
+interface MyComponentProps {
+  slides: {
+    __typename: string;
+    total: number;
+    items: BlogPost[];
+  }
+}
 
 
-const Gallery = () => {
+const Gallery = ({slides}: MyComponentProps) => {
     const [currentSlide, setCurrentSlide] = React.useState(0)
+    const [imagesLoaded, setImagesLoaded] = useState<number>(0)
     const [loaded, setLoaded] = useState(false)
+ 
+  console.log(slides)
+
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-      initial: 0,
+      initial: 1,
       slideChanged(slider) {
         setCurrentSlide(slider.track.details.rel)
       },
       created() {
-        setLoaded(true)
+        setLoaded(false)
       },
+      updated() {
+        setLoaded(true)
+      }
     })
+
+    const handleImageLoad: () => void = () => {
+      setImagesLoaded((prev) => prev + 1);
+    };
+
+    useEffect(()=>{
+      if(imagesLoaded === 3) setLoaded(true)
+    },[imagesLoaded])
 
 
   return (
     <>
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide">
-            <FeaturePost />
-          </div>
-          
-          <div className="keen-slider__slide">
-            <FeaturePost />
-          </div>
-          
-          <div className="keen-slider__slide">
-            <FeaturePost />
-          </div>
+          {
+            slides?.items.map((item: any) => (
+              <div className="keen-slider__slide">
+                <FeaturePost 
+                  title={item.title}
+                  avatarImg={item.author.avatar.url}
+                  author={`${item.author.avatar.name} ${item.author.avatar.surname}`}
+                  date={item.date}
+                  coverImage={item.coverImage.url}
+                  content={item.content}
+                  onImageLoad={handleImageLoad}
+                />
+              </div>
+            ))
+          }
+
         </div>
         {loaded && instanceRef.current && (
           <>
@@ -51,7 +81,7 @@ const Gallery = () => {
               }
               disabled={
                 currentSlide ===
-                instanceRef.current.track.details.slides.length - 1
+                (instanceRef?.current.track.details?.slides?.length || 0) - 1
               }
             />
           </>
