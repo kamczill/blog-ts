@@ -78,7 +78,7 @@ const Header = () => {
                 Our newsroom
               </h2>
               <div className='flex justify-center'>
-              <Searcher onImageLoad={handleImageLoad} />
+              <Searcher />
               </div>
               <div className='hidden mt-[100px] xl:block 2xl:mt-[170px]'>
                 {loading 

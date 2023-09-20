@@ -139,7 +139,7 @@ export interface BlogPost {
   author: Author;
   contentfulMetadata: ContentfulMetadata;
   coverImage: AssetCoverImage;
-  date: string;
+  date?: string;
   title: string;
   __typename: string;
 }
