@@ -2,12 +2,12 @@
 import FeatureArticle from './FeatureArticle'
 import ViewAllButton from '../ViewAllButton'
 import Heading from '../Heading'
-import avatar from "./../../assets/Avatar@2x.png";
 import { useQuery } from '@apollo/client';
 import { GET_POPULAR_ARTICLES } from '../../graphql/queries/getPopularArticles';
 import { useEffect, useState } from 'react';
 import { formatDate } from '../../utils/dateUtils';
-
+import { BlogPost } from '../../types';
+import { MoonLoader } from 'react-spinners';
 const PopularArticles = () => {
   const { loading, error, data } = useQuery(GET_POPULAR_ARTICLES)
   const [articleItems, setArticleItems] = useState<any>(null)
@@ -15,7 +15,6 @@ const PopularArticles = () => {
     useEffect(() => {
       if(data){
         setArticleItems(data?.blogPostCollection.items)
-        console.log(data?.blogPostCollection.items)
       }
     }, [data])
 
@@ -28,8 +27,11 @@ const PopularArticles = () => {
         />
        
         <div className='flex flex-col gap-10 lg:flex-row'>
+        { loading && <MoonLoader color="#36d7b7" />}
+        { error && <p>Failed to fetch data. Please try again.</p>}
+
         {
-          articleItems?.map((article: any) => (
+          articleItems?.map((article: BlogPost) => (
             <FeatureArticle
               showBadge 
               badgeText={article.contentfulMetadata.tags[0].id.toUpperCase()}

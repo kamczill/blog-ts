@@ -22,7 +22,6 @@ const Searcher = () => {
     useEffect(() => {
         if(searchValue.length > 0){
             handleSearch();
-            console.log(data)
         }
     }, [searchValue])
 
@@ -35,7 +34,7 @@ const Searcher = () => {
                 <div className='absolute left-0 top-[65px] bg-white w-full min-h-[150px] h-max z-30 rounded-md shadow-md'>
                     {error && (
                         <SearcherWrapper>
-                            <p className="text-black">Oooops, something is wrong</p>
+                            <p className="text-black">Failed to fetch data. Please try again.</p>
                         </SearcherWrapper>
                     )}
 
@@ -70,8 +69,7 @@ const Searcher = () => {
                 <li className='border rounded-md px-3 py-1 flex justify-center items-center text-center backdrop-blur-md '>{tag}</li>
             ))}
         </ul>
-        </div>
-        
+        </div>        
     </div>
   )
 }
