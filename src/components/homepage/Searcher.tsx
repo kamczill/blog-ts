@@ -4,6 +4,7 @@ import { GET_SEARCH_RESULT_BY_TITLES } from '../../graphql/queries/getSearchResu
 import MoonLoader from 'react-spinners/MoonLoader';
 import SearcherWrapper from './SearcherWrapper';
 import { BlogPost } from '../../types';
+import { Link } from 'react-router-dom';
 const tags = ['Design', 'User Experience', 'User Interface']
 
 
@@ -53,7 +54,7 @@ const Searcher = () => {
                     {hasResults && (
                         <div className='h-full flex flex-col gap-4 py-5 px-4'>
                             {data?.blogPostCollection.items.map((el: BlogPost) => (
-                                <a className='text-black font-os underline underline-offset-2'>{el.title}</a>
+                                <Link to={`/post/${el.slug}`} className='text-black font-os underline underline-offset-2'>{el.title}</Link>
                             ))}
                         </div>
                     )}

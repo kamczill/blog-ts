@@ -10,6 +10,7 @@ query GetBlogPosts($titleContains: String!) {
           }
         }
         title
+        slug
         coverImage {
           title
           description

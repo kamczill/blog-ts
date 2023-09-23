@@ -142,5 +142,11 @@ export interface BlogPost {
   coverImage: AssetCoverImage;
   date?: string;
   title: string;
+  slug: string;
   __typename: string;
+}
+
+export interface FormatContentProps {
+  nodeType: string;
+  content: Content[];
 }

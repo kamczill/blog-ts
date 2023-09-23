@@ -3,24 +3,14 @@ import { useQuery } from '@apollo/client';
 import { GET_SINGLE_POST } from '../graphql/queries/getSinglePost';
 import { useParams } from 'react-router-dom';
 import { MoonLoader } from 'react-spinners';
+import { FormatContentProps } from '../types';
 
 
-interface Content {
-    data: {};
-    marks: [];
-    nodeType: string;
-    value: string;
-}
-
-interface FormatContentProps {
-    nodeType: string;
-    content: Content[];
-}
 
 const FormatContent = ({ nodeType, content }: FormatContentProps) => {
     switch (nodeType) {
       case 'heading-4':
-        return <h4 className="text-2xl pt-7">{content[0].value}</h4>;
+        return <h4 className="text-xl pt-7">{content[0].value}</h4>;
       case 'paragraph':
         return <p className="text-base pt-2">{content[0].value}</p>;
       default:
@@ -52,12 +42,12 @@ const PostPage = () => {
         <div className='w-full'>
             <img src={data?.blogPostCollection.items[0].coverImage.url} className='w-full object-cover object-top max-h-[70vh]'/>
         </div>
-        <div className='font-os p-4 flex flex-col items-center justify-center'>
+        <div className='font-os p-4 py-10 flex flex-col items-center justify-center'>
             <div className='max-w-[1100px]'>
-                <h1 className='text-lg text-center text-[#0D2436] pb-10 md:text-xl lg:text-3xl'>
+                <h1 className='text-2xl text-center text-[#0D2436] pb-10 md:text-xl lg:text-3xl'>
                     {data?.blogPostCollection.items[0].title}
                 </h1>
-                {data?.blogPostCollection.items[0].content.json.content.map(item => (
+                {data?.blogPostCollection.items[0].content.json.content.map((item: FormatContentProps) => (
                     <>
                         <FormatContent 
                             nodeType={item.nodeType} 
