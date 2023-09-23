@@ -51,6 +51,7 @@ const Gallery = ({slides}: MyComponentProps) => {
               <div className="keen-slider__slide">
                 <FeaturePost 
                   title={item.title}
+                  slug={item.slug}
                   avatarImg={item.author.avatar.url}
                   author={`${item.author.avatar.name} ${item.author.avatar.surname}`}
                   date={item.date}

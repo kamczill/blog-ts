@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { formatDate } from '../../utils/dateUtils';
 import { BlogPost } from '../../types';
 import { MoonLoader } from 'react-spinners';
-import { Link } from 'react-router-dom';
 
 const PopularArticles = () => {
   const { loading, error, data } = useQuery(GET_POPULAR_ARTICLES)

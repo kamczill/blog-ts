@@ -7,6 +7,7 @@ export const GET_RECENT_ARTICLES = gql`
       items {
         date
         title
+        slug
         coverImage {
           title
           description

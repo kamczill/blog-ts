@@ -12,6 +12,7 @@ export const GET_CASE_STUDIES_ARTICLES = gql`
         }
         date
         title
+        slug
         coverImage {
           title
           description

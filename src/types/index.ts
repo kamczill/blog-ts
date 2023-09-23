@@ -66,16 +66,6 @@ export interface featurePostProps {
   content?: ApiResponse;
 }
 
-// export interface Author{
-//   avatar: {
-//     url: string;
-//     __typename?: string;
-//   }
-//   name: string;
-//   surname: string;
-//   __typename: string;
-// }
-
 export interface CoverImage {
   contentType: string;
     description: string;
@@ -97,6 +87,7 @@ export interface RecentArticle {
     }[];
   coverImage: CoverImage;
   date: string;
+  slug?: string;
   title: string;
     __typename?: string;
   };

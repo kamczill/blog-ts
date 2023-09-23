@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { GET_RECENT_ARTICLES } from '../../graphql/queries/getRecentArticles';
 import { useEffect } from 'react';
 import { formatDate } from '../../utils/dateUtils';
-import { RecentArticle } from '../../types';
+import { BlogPost } from '../../types';
 import BounceLoader from 'react-spinners/BounceLoader';
 
 const RecentArticles = () => {
@@ -23,9 +23,10 @@ const RecentArticles = () => {
             showButton
         />
         <div className='flex flex-col items-center gap-10 lg:flex-row lg:p-0'>
-            { data?.blogPostCollection.items.map((item: RecentArticle) => (
+            { data?.blogPostCollection.items.map((item: BlogPost) => (
                 <FeatureArticle 
                     title={item.title}
+                    slug={item.slug}
                     coverImage={item.coverImage.url}
                     avatarImg={item.author.avatar.url} 
                     author={`${item.author.name} ${item.author.surname}`} 

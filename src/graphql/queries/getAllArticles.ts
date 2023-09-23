@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const GET_POPULAR_ARTICLES = gql`
+export const GET_ALL_ARTICLES = gql`
 {
     blogPostCollection(limit:5) {
       total
@@ -12,6 +12,7 @@ export const GET_POPULAR_ARTICLES = gql`
         }
         date
         title
+        slug
         coverImage {
           title
           description
