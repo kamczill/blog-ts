@@ -14,15 +14,15 @@ function App() {
   return (
     <>
       <div className='w-full min-h-screen overflow-x-hidden relative'>
-        <Navbar />
         <BrowserRouter>
+        <Navbar />
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/home' element={<HomePage />} />
             <Route path='/post/:slug' element={<PostPage />} />
           </Routes>
-        </BrowserRouter>
         <Footer />
+        </BrowserRouter>
       </div>
     </>
   )

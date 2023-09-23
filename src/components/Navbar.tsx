@@ -1,5 +1,6 @@
 import{ useState, useEffect, useRef } from 'react'
 import { HiOutlineMenuAlt3, HiOutlineX } from 'react-icons/hi'
+import { Link, Navigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -50,7 +51,11 @@ const Navbar = () => {
     <div ref={navbarRef} id='navbar' className='w-full flex justify-center items-center fixed z-[20] pb-3 transition-all'>
         <div className='pt-3 px-6 grid grid-cols-3 align-center items-center relative w-full max-w-[1600px]'>
             <div className='col-start-2'>
-                <h2 className='font-os font-semibold text-3xl text-white text-center xl:text-4xl'>heya.</h2>
+                <h2 className='font-os font-semibold text-3xl text-white text-center xl:text-4xl'>
+                    <Link to='/'>
+                        heya.
+                    </Link>
+                </h2>
             </div>
             <div className='flex justify-end'>
                 { !isMenuOpen 
