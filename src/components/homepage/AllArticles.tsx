@@ -4,14 +4,10 @@ import ViewAllButton from '../ViewAllButton'
 import avatar from "./../../assets/Avatar@2x.png";
 import { useQuery } from '@apollo/client';
 import { GET_RECENT_ARTICLES } from '../../graphql/queries/getRecentArticles';
+import MoonLoader from 'react-spinners/MoonLoader';
 
 const AllArticles = () => {
     const { loading, error, data } = useQuery(GET_RECENT_ARTICLES);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
-    console.log(data)
-
   return (
     <div className='w-full max-w-[1100px] flex flex-col px-6 gap-4 xl:p-0'>
         <Heading 
@@ -19,6 +15,9 @@ const AllArticles = () => {
             description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'
         />
         <div className='grid grid-cols-2 gap-4'>
+
+            { loading && <MoonLoader color="#36d7b7" />}
+            { error && <p>Failed to fetch data. Please try again.</p>}           
             <FeatureArticle 
                 showBadge
                 badgeText='HOME'

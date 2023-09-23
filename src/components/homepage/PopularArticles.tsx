@@ -1,4 +1,3 @@
-
 import FeatureArticle from './FeatureArticle'
 import ViewAllButton from '../ViewAllButton'
 import Heading from '../Heading'
@@ -8,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { formatDate } from '../../utils/dateUtils';
 import { BlogPost } from '../../types';
 import { MoonLoader } from 'react-spinners';
+
 const PopularArticles = () => {
   const { loading, error, data } = useQuery(GET_POPULAR_ARTICLES)
   const [articleItems, setArticleItems] = useState<any>(null)
@@ -29,7 +29,6 @@ const PopularArticles = () => {
         <div className='flex flex-col gap-10 lg:flex-row'>
         { loading && <MoonLoader color="#36d7b7" />}
         { error && <p>Failed to fetch data. Please try again.</p>}
-
         {
           articleItems?.map((article: BlogPost) => (
             <FeatureArticle

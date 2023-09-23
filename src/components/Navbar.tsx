@@ -47,7 +47,7 @@ const Navbar = () => {
     }, [isMenuOpen])
     
   return (
-    <div ref={navbarRef} className='w-full flex justify-center items-center fixed z-[20] pb-3 transition-all'>
+    <div ref={navbarRef} id='navbar' className='w-full flex justify-center items-center fixed z-[20] pb-3 transition-all'>
         <div className='pt-3 px-6 grid grid-cols-3 align-center items-center relative w-full max-w-[1600px]'>
             <div className='col-start-2'>
                 <h2 className='font-os font-semibold text-3xl text-white text-center xl:text-4xl'>heya.</h2>

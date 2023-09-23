@@ -6,7 +6,7 @@ import { toggleTheme } from './features/ui/uiSlice'
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
-
+import PostPage from './pages/PostPage';
 function App() {
   const colorTheme = useSelector((state: RootState) => state.ui.theme)
   const dispatch = useDispatch()
@@ -19,6 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/home' element={<HomePage />} />
+            <Route path='/post/:slug' element={<PostPage />} />
           </Routes>
         </BrowserRouter>
         <Footer />

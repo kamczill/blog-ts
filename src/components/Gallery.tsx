@@ -19,8 +19,6 @@ const Gallery = ({slides}: MyComponentProps) => {
     const [currentSlide, setCurrentSlide] = React.useState(0)
     const [imagesLoaded, setImagesLoaded] = useState<number>(0)
     const [loaded, setLoaded] = useState(false)
- 
-  console.log(slides)
 
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
       initial: 1,

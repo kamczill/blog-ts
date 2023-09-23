@@ -57,6 +57,7 @@ interface ApiResponse {
 export interface featurePostProps {
   onImageLoad?: () => void;
   title: string;
+  slug: string;
   avatarImg: string;
   author: string;
   date: string;

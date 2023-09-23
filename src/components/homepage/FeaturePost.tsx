@@ -4,8 +4,10 @@ import avatar from "./../../assets/Avatar.png";
 import {RiCheckFill} from 'react-icons/ri'
 import { featurePostProps, onImageLoadProps } from "../../types";
 import { truncateToMaxWords } from "../../utils/textUtils";
+import { Link } from "react-router-dom";
 
-const FeaturePost = ({onImageLoad, title, avatarImg, author, date, coverImage, content}: featurePostProps) => {
+
+const FeaturePost = ({onImageLoad, title, avatarImg, author, date, coverImage, content, slug}: featurePostProps) => {
   const [excerpt, setExcerpt] = useState<string | null>(null)
   
 
@@ -29,8 +31,8 @@ const FeaturePost = ({onImageLoad, title, avatarImg, author, date, coverImage, c
           <div className="p-1 bg-[#EBF8F3] text-[#1565D8] font-bold rounded-3xl text-xs max-w-[90px] flex justify-center">
             FEATURED
           </div>
-          <h3 className="font-bold text-2xl text-[#183B56]">
-            {title}
+          <h3 className="font-bold text-2xl text-[#183B56] hover:underline">
+            <Link to={`/post/${slug}`}>{title}</Link>
           </h3>
           <p className="font-os text-[#5A7184]">
             {excerpt ? truncateToMaxWords(excerpt, 40): ''}

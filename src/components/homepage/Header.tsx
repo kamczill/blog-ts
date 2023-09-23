@@ -14,6 +14,7 @@ const Header = () => {
   const { loading, error, data } = useQuery(GET_LATEST_ARTICLE);
   
   useEffect(() => {
+    console.log(data)
     if (error) console.log(error)
   },[error])
 
@@ -88,6 +89,7 @@ const Header = () => {
                 <FeaturePost 
                   onImageLoad={handleImageLoad} 
                   title={data?.blogPostCollection.items[0].title}
+                  slug={data?.blogPostCollection.items[0].slug}
                   avatarImg={data?.blogPostCollection.items[0].author.avatar.url}
                   author={`${data?.blogPostCollection.items[0].author.name} ${data?.blogPostCollection.items[0].author.surname}`}
                   date={data?.blogPostCollection.items[0].date}

@@ -1,10 +1,15 @@
 import { gql } from '@apollo/client';
 
-export const GET_LATEST_ARTICLE = gql`
-{
-    blogPostCollection(order:date_DESC, limit:1) {
+export const GET_SINGLE_POST = gql`
+query GetBlogPost($slug: String!) {
+  blogPostCollection(where: {slug: $slug}) {
       total
       items {
+        contentfulMetadata {
+          tags {
+            id
+          }
+        }
         date
         title
         slug
@@ -27,11 +32,11 @@ export const GET_LATEST_ARTICLE = gql`
             name
             surname
             avatar {
-              url(transform:{
-                format:WEBP
+              url(transform: {
+                format: WEBP
               })
             }
-        }
+          }
         }
       }
     }
