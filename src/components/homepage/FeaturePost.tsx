@@ -31,7 +31,7 @@ const FeaturePost = ({onImageLoad, title, avatarImg, author, date, coverImage, c
           <div className="p-1 bg-[#EBF8F3] text-[#1565D8] font-bold rounded-3xl text-xs max-w-[90px] flex justify-center">
             FEATURED
           </div>
-          <h3 className="font-bold text-2xl text-[#183B56] hover:underline">
+          <h3 className="font-bold text-xl text-[#183B56] hover:underline">
             <Link to={`/post/${slug}`}>{title}</Link>
           </h3>
           <p className="font-os text-[#5A7184]">

@@ -7,6 +7,9 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
 import PostPage from './pages/PostPage';
+import { ParallaxProvider } from 'react-scroll-parallax';
+
+
 function App() {
   const colorTheme = useSelector((state: RootState) => state.ui.theme)
   const dispatch = useDispatch()
@@ -14,15 +17,17 @@ function App() {
   return (
     <>
       <div className='w-full min-h-screen overflow-x-hidden relative'>
-        <BrowserRouter>
-        <Navbar />
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/home' element={<HomePage />} />
-            <Route path='/post/:slug' element={<PostPage />} />
-          </Routes>
-        <Footer />
-        </BrowserRouter>
+        <ParallaxProvider>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/home' element={<HomePage />} />
+              <Route path='/post/:slug' element={<PostPage />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </ParallaxProvider>
       </div>
     </>
   )
