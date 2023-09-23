@@ -17,6 +17,7 @@ export interface headingProps {
 
 export interface featureArticleProps {
   title: string;
+  slug: string;
   avatarImg: string;
   author: string;
   date: string;

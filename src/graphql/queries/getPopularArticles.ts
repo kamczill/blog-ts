@@ -12,6 +12,7 @@ export const GET_POPULAR_ARTICLES = gql`
         }
         date
         title
+        slug
         coverImage {
           title
           description

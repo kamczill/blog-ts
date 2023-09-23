@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { formatDate } from '../../utils/dateUtils';
 import { BlogPost } from '../../types';
 import { MoonLoader } from 'react-spinners';
+import { Link } from 'react-router-dom';
 
 const PopularArticles = () => {
   const { loading, error, data } = useQuery(GET_POPULAR_ARTICLES)
@@ -35,6 +36,7 @@ const PopularArticles = () => {
               showBadge 
               badgeText={article.contentfulMetadata.tags[0].id.toUpperCase()}
               title={article.title}
+              slug={article.slug}
               coverImage={article.coverImage.url}
               avatarImg={article.author.avatar.url} 
               author={`${article.author.name} ${article.author.surname}`} 

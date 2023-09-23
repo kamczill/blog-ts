@@ -1,10 +1,10 @@
 import { featureArticleProps } from '../../types'
 import img from './../../assets/article-img1.png'
 import {RiCheckFill} from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 
 
-
-const FeatureArticle = ({showBadge, badgeText, coverImage, title, avatarImg, author, date, small}: featureArticleProps) => {
+const FeatureArticle = ({showBadge, badgeText, coverImage, title, avatarImg, author, date, small, slug}: featureArticleProps) => {
   return (
       <div className='relative rounded-xl'>
       <img src={coverImage || img} className='w-full h-full min-h-[400px] max-w-[550px] gradient object-cover rounded-lg'/>
@@ -14,8 +14,8 @@ const FeatureArticle = ({showBadge, badgeText, coverImage, title, avatarImg, aut
         {badgeText}
         </div>
         <article className={`${small ? 'p-0': 'p-2'} lg:p-2 flex flex-col gap-8`}>
-          <h3 className={`text-white ${small ? 'text-sm': 'text-2xl'} font-os md:text-2xl`}> 
-          {title}
+          <h3 className={`text-white ${small ? 'text-sm': 'text-2xl'} font-os hover:underline md:text-2xl`}> 
+          <Link to={`/post/${slug}`}>{title}</Link>
           </h3>
           <div className="hidden justify-between text-[#5A7184] pr- w-full lg:flex">
             <div className="flex items-center gap-2 w-full">
