@@ -7,6 +7,7 @@ export interface onImageLoadProps {
 export interface viewAllButtonProps {
     classes: string;
     text?: string;
+    navigateTo?: string;
 }
 
 export interface headingProps {
