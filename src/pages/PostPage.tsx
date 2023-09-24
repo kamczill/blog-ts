@@ -1,10 +1,11 @@
 import {useState, useEffect} from 'react'
 import { useQuery } from '@apollo/client';
 import { GET_SINGLE_POST } from '../graphql/queries/getSinglePost';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { MoonLoader } from 'react-spinners';
 import { FormatContentProps } from '../types';
 import { ParallaxBanner } from 'react-scroll-parallax';
+import PopularArticles from '../components/homepage/PopularArticles';
 
 
 
@@ -20,8 +21,8 @@ const FormatContent = ({ nodeType, content }: FormatContentProps) => {
   };
 
 const PostPage = () => {
-    const [navbarHeight, setNavbarHeight] = useState(0)
     const { slug } = useParams();
+    const { pathname } = useLocation();
 
     const { loading, error, data } = useQuery(GET_SINGLE_POST, {
         variables: { slug: slug },
@@ -29,20 +30,16 @@ const PostPage = () => {
 
 
     useEffect(() => {
-        const navbar = document.querySelector('#navbar')
-        if(navbar){
-
-            setNavbarHeight(navbar.getBoundingClientRect().height)
-        }
-    }, [navbarHeight])
+      window.scrollTo(0,0);
+    }, [pathname])
     
   return (
-    <div style={{}} className={`min-h-[500px]`} >
+    <div style={{}} className={`min-h-[500px] pb-10`} >
         { loading && <MoonLoader color="#36d7b7" />}
         { error && <p>Failed to fetch data. Please try again.</p>}
         <div className='w-full'>
         <ParallaxBanner
-          layers={[{ image: `${data?.blogPostCollection.items[0].coverImage.url}`, speed: -20 }]}
+          layers={[{ image: `${data?.blogPostCollection.items[0].coverImage.url}`, speed: -25 }]}
           className="aspect-[2/1] object-cover min-h-[50vh] md:max-h-[70vh]"
         />
         </div>
@@ -61,6 +58,9 @@ const PostPage = () => {
                 ))
                 }
             </div>
+        </div>
+        <div className='flex justify-center mt-10 pt-10 border-t-2'>
+          <PopularArticles />
         </div>
     </div>
   )
