@@ -7,8 +7,7 @@ const ViewAllButton = ({classes, text, navigateTo}: viewAllButtonProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log(navigateTo)
-    if(navigateTo.length > 0) navigate(navigateTo)
+    if(navigateTo?.length > 0) navigate(navigateTo)
   }
 
     return (

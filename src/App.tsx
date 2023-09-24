@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <div className='w-full min-h-screen overflow-x-hidden relative'>
+      <div className='flex flex-col justify-between w-full min-h-screen overflow-x-hidden relative'>
         <ParallaxProvider>
           <BrowserRouter>
             <Navbar />

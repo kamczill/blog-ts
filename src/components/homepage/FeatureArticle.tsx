@@ -10,7 +10,7 @@ const FeatureArticle = ({showBadge, badgeText, coverImage, title, avatarImg, aut
       <img src={coverImage || img} className='w-full h-full min-h-[400px] max-w-[550px] gradient object-cover rounded-lg'/>
       <div className='gradient absolute top-0 h-full w-full max-w-[550px]  rounded-lg'></div>
       <div className={`absolute top-0 h-full w-full flex flex-col ${showBadge ? 'lg:justify-between': 'lg:justify-end'} justify-end p-4 lg:p-[2rem]`}>
-        <div className={` hidden  bg-white rounded-xl text-[#36B37E] max-w-[100px] items-center justify-center lg:flex`}>
+        <div className={` hidden  bg-white rounded-xl text-[#36B37E] max-w-[130px] p-[2px] items-center justify-center lg:flex`}>
         {badgeText}
         </div>
         <article className={`${small ? 'p-0': 'p-2'} lg:p-2 flex flex-col gap-8`}>

@@ -68,6 +68,7 @@ const AllArticles = () => {
         <ViewAllButton 
             classes='self-center'
             text='More Articles'
+            navigateTo='categories/all'
         />
     </div>
   )

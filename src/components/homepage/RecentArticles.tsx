@@ -21,6 +21,7 @@ const RecentArticles = () => {
             title='Recent Articles'
             description="Here’s what we've been up to recently."
             showButton
+            navigateTo='categories/recent'
         />
         <div className='flex flex-col items-center gap-10 lg:flex-row lg:p-0'>
             { data?.blogPostCollection.items.map((item: BlogPost) => (

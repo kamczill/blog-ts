@@ -13,6 +13,7 @@ const CaseStudies = () => {
             title='Case Studies'
             description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'
             showButton
+            navigateTo='categories/caseStudies'
         />
         {loading && <MoonLoader color="#36d7b7" />}
         {error && <p>Failed to fetch data. Please try again.</p>}
