@@ -17,6 +17,7 @@ const CategoryPage = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0,0)
         if(category && category !== 'All'){
             getPosts({variables: {category: [category]}})
             console.log(data)

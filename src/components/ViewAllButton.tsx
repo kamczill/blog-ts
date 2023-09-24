@@ -1,14 +1,14 @@
+import { useState, useEffect} from 'react'
 import { RiArrowRightLine } from 'react-icons/ri'
 import { viewAllButtonProps } from '../types'
 import { useNavigate } from 'react-router-dom'
 
 const ViewAllButton = ({classes, text, navigateTo}: viewAllButtonProps) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    if(navigateTo) {
-      navigate(`${navigateTo}`)
-    }
+    console.log(navigateTo)
+    if(navigateTo.length > 0) navigate(navigateTo)
   }
 
     return (

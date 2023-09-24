@@ -11,7 +11,7 @@ import { MoonLoader } from 'react-spinners';
 const PopularArticles = () => {
   const { loading, error, data } = useQuery(GET_POPULAR_ARTICLES)
   const [articleItems, setArticleItems] = useState<any>(null)
-
+  
     useEffect(() => {
       if(data){
         setArticleItems(data?.blogPostCollection.items)
@@ -24,6 +24,7 @@ const PopularArticles = () => {
           title='Popular Articles'
           description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'
           showButton
+          navigateTo="categories/popular" 
         />
        
         <div className='flex flex-col gap-10 lg:flex-row'>
@@ -44,7 +45,7 @@ const PopularArticles = () => {
           ))
         }
         </div>
-          <ViewAllButton classes={'place-self-center lg:hidden'} />
+          <ViewAllButton classes={'place-self-center lg:hidden'} navigateTo="categories/popular" />
     </div>
   )
 }

@@ -7,13 +7,14 @@ export interface onImageLoadProps {
 export interface viewAllButtonProps {
     classes: string;
     text?: string;
-    navigateTo?: string;
+    navigateTo: string;
 }
 
 export interface headingProps {
   title: string;
   description: string;
   showButton?: boolean;
+  navigateTo?: string;
 }
 
 export interface featureArticleProps {
