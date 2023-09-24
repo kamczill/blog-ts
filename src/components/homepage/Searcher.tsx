@@ -4,8 +4,9 @@ import { GET_SEARCH_RESULT_BY_TITLES } from '../../graphql/queries/getSearchResu
 import MoonLoader from 'react-spinners/MoonLoader';
 import SearcherWrapper from './SearcherWrapper';
 import { BlogPost } from '../../types';
-import { Link } from 'react-router-dom';
-const tags = ['Design', 'User Experience', 'User Interface']
+import { Link, useNavigate } from 'react-router-dom';
+import { capitalizeFirstLetter } from '../../utils/textUtils';
+const tags = ['recent', 'caseStudies', 'popular']
 
 
 const Searcher = () => {
@@ -14,10 +15,14 @@ const Searcher = () => {
     const shouldShowSearch = searchValue.length > 0;
     const noResults = data?.blogPostCollection.items?.length < 1;
     const hasResults = data?.blogPostCollection.items?.length > 0;
-
+    const navigate = useNavigate()
 
     const handleSearch = () => {
         getPosts({variables: {titleContains: searchValue}})
+    }
+
+    const handleNavigate = (navigateTo: string) => {
+        navigate(`categories/${navigateTo}`)
     }
 
     useEffect(() => {
@@ -67,7 +72,7 @@ const Searcher = () => {
         <h4 className='hidden text-lg font-bold md:block'>Popular Tags:</h4>
         <ul className='flex gap-2'>
             {tags.map(tag => (
-                <li className='border rounded-md px-3 py-1 flex justify-center items-center text-center backdrop-blur-md '>{tag}</li>
+                <li onClick={() => handleNavigate(tag)} className='border rounded-md px-3 py-1 flex justify-center items-center text-center backdrop-blur-md '>{capitalizeFirstLetter(tag)}</li>
             ))}
         </ul>
         </div>        
