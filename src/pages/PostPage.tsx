@@ -6,6 +6,7 @@ import { MoonLoader } from 'react-spinners';
 import { FormatContentProps } from '../types';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import PopularArticles from '../components/homepage/PopularArticles';
+import InterestingArticlesFeature from '../components/InterestingArticlesFeature';
 
 
 
@@ -43,24 +44,25 @@ const PostPage = () => {
           className="aspect-[2/1] object-cover min-h-[50vh] md:max-h-[70vh]"
         />
         </div>
-        <div className='font-os p-4 py-10 flex flex-col items-center justify-center'>
+        <div className='font-os px-6 py-10 flex flex-col items-center justify-center'>
             <div className='max-w-[1100px]'>
                 <h1 className='text-2xl text-center text-[#0D2436] pb-10 underline underline-offset-4 md:text-xl lg:text-3xl'>
                     {data?.blogPostCollection.items[0].title}
                 </h1>
-                {data?.blogPostCollection.items[0].content.json.content.map((item: FormatContentProps) => (
+                {data?.blogPostCollection.items[0].content.json.content.map((item: FormatContentProps, idx: number) => (
                     <>
                         <FormatContent 
                             nodeType={item.nodeType} 
-                            content={item.content} 
+                            content={item.content}
+                            key={idx} 
                         />
                     </>
                 ))
                 }
             </div>
         </div>
-        <div className='flex justify-center mt-10 pt-10 border-t-2'>
-          <PopularArticles />
+        <div className='flex justify-center pt-[96px] border-t-2 lg:pt-[130px] xl:mt-8 xl:pt-10'>
+          <InterestingArticlesFeature />
         </div>
     </div>
   )

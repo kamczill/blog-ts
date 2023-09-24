@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
 import PostPage from './pages/PostPage';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import CategoryPage from './pages/CategoryPage';
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/home' element={<HomePage />} />
-              <Route path='/post/:slug' element={<PostPage />} />
+              <Route path='/posts/:slug' element={<PostPage />} />
+              <Route path='/categories/:category' element={<CategoryPage />} />
             </Routes>
             <Footer />
           </BrowserRouter>

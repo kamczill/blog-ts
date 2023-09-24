@@ -54,7 +54,7 @@ const Searcher = () => {
                     {hasResults && (
                         <div className='h-full flex flex-col gap-4 py-5 px-4'>
                             {data?.blogPostCollection.items.map((el: BlogPost) => (
-                                <Link to={`/post/${el.slug}`} className='text-black font-os underline underline-offset-2'>{el.title}</Link>
+                                <Link to={`/posts/${el.slug}`} className='text-black font-os underline underline-offset-2'>{el.title}</Link>
                             ))}
                         </div>
                     )}

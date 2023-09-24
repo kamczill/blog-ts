@@ -15,7 +15,7 @@ const FeatureArticle = ({showBadge, badgeText, coverImage, title, avatarImg, aut
         </div>
         <article className={`${small ? 'p-0': 'p-2'} lg:p-2 flex flex-col gap-8`}>
           <h3 className={`text-white ${small ? 'text-md': 'text-xl'} font-os hover:underline md:text-2xl`}> 
-            <Link to={`/post/${slug}`}>{title}</Link>
+            <Link to={`/posts/${slug}`}>{title}</Link>
           </h3>
           <div className="hidden justify-between text-[#5A7184] pr- w-full lg:flex">
             <div className="flex items-center gap-2 w-full">

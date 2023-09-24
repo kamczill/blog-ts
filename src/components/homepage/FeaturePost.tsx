@@ -32,7 +32,7 @@ const FeaturePost = ({onImageLoad, title, avatarImg, author, date, coverImage, c
             FEATURED
           </div>
           <h3 className="font-bold text-xl text-[#183B56] hover:underline">
-            <Link to={`/post/${slug}`}>{title}</Link>
+            <Link to={`/posts/${slug}`}>{title}</Link>
           </h3>
           <p className="font-os text-[#5A7184]">
             {excerpt ? truncateToMaxWords(excerpt, 40): ''}
