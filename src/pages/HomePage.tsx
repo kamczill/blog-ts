@@ -4,10 +4,16 @@ import Header from '../components/homepage/Header'
 import Newsletter from '../components/homepage/Newsletter'
 import PopularArticles from '../components/homepage/PopularArticles'
 import RecentArticles from '../components/homepage/RecentArticles'
+import {Helmet} from "react-helmet";
+
 
 const HomePage = () => {
   return (
     <div className='w-full flex flex-col justify-center items-center gap-12 lg:gap-[96px]'>
+      <Helmet>
+        <title>heya. - blog app</title>
+        <meta name="description" content="Your blog site about real estates" />
+      </Helmet>
         <Header />
         <PopularArticles />
         <RecentArticles />

@@ -10,6 +10,7 @@ import { BlogPost } from '../types'
 import MoonLoader from 'react-spinners/MoonLoader'
 import InterestingArticlesFeature from '../components/InterestingArticlesFeature'
 import { GET_ALL_ARTICLES } from '../graphql/queries/getAllArticles'
+import { Helmet } from 'react-helmet'
 
 const CategoryPage = () => {
     const { category } = useParams()
@@ -36,6 +37,10 @@ const CategoryPage = () => {
 
   return (
     <div>
+        <Helmet>
+          <title>{capitalizeFirstLetter(`${category} - heya.` || 'heya.')}</title>
+          <meta name="description" content='A blog application about real estates ' />
+        </Helmet>
         <div className='w-full h-full'>
             <img src={estateImg} className='w-full max-h-[65px] object-cover object-top blur-sm'/>
         </div>

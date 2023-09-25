@@ -7,7 +7,7 @@ import { FormatContentProps } from '../types';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import PopularArticles from '../components/homepage/PopularArticles';
 import InterestingArticlesFeature from '../components/InterestingArticlesFeature';
-
+import { Helmet } from 'react-helmet';
 
 
 const FormatContent = ({ nodeType, content }: FormatContentProps) => {
@@ -36,6 +36,10 @@ const PostPage = () => {
     
   return (
     <div style={{}} className={`min-h-[500px] pb-10`} >
+        <Helmet>
+          <title>{data?.blogPostCollection.items[0].title}</title>
+          <meta name="description" content={data?.blogPostCollection.items[0].title} />
+        </Helmet>
         { loading && <MoonLoader color="#36d7b7" />}
         { error && <p>Failed to fetch data. Please try again.</p>}
         <div className='w-full'>
