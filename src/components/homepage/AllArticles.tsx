@@ -21,7 +21,7 @@ const AllArticles = () => {
     },[isInView])
 
   return (
-    <div ref={scope} className='w-full max-w-[1100px] flex flex-col px-6 gap-4 xl:p-0'>
+    <div ref={scope} className='w-full max-w-[1100px] flex flex-col px-6 gap-4 min-h-[700px] xl:p-0'>
         <Heading 
             title='All Articles'
             description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'

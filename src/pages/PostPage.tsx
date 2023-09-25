@@ -42,7 +42,7 @@ const PostPage = () => {
 
     useLayoutEffect(() => {
       if (isInView) {
-        animate(scope.current, { opacity: [.5, 1], y: ["10%", "0%"]}, {ease: "easeIn", duration: .6} )
+        animate(scope.current, { opacity: [.1, 1], y: ["10%", "0%"]}, {ease: "easeIn", duration: .6} )
       }
     },[isInView])
 

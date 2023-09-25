@@ -25,7 +25,7 @@ const RecentArticles = () => {
     }, [data])
   return (
     <div 
-        className='w-full max-w-[1100px] flex flex-col gap-4 px-6 xl:px-0'
+        className='w-full max-w-[1100px] flex flex-col gap-4 px-6 min-h-[400px] xl:px-0'
         ref={scope}
     >
         <Heading
