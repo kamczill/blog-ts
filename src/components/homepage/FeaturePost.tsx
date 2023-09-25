@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import img from "./../../assets/state-view.png";
-import avatar from "./../../assets/Avatar.png";
 import {RiCheckFill} from 'react-icons/ri'
-import { featurePostProps, onImageLoadProps } from "../../types";
+import { featurePostProps} from "../../types";
 import { truncateToMaxWords } from "../../utils/textUtils";
 import { Link } from "react-router-dom";
 

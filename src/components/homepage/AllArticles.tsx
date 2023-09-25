@@ -6,11 +6,22 @@ import { useQuery } from '@apollo/client';
 import MoonLoader from 'react-spinners/MoonLoader';
 import { formatDate } from '../../utils/dateUtils';
 import { BlogPost } from '../../types';
+import {useLayoutEffect} from 'react';
+import { useAnimate, useInView} from 'framer-motion';
+
 
 const AllArticles = () => {
     const { loading, error, data } = useQuery(GET_ALL_ARTICLES);
+    const [scope, animate] = useAnimate()
+    const isInView = useInView(scope, {margin: "-20% 0px 0px 0px", once: true})
+
+    useLayoutEffect(() => {
+        if (isInView) {
+          animate(scope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6})}
+    },[isInView])
+
   return (
-    <div className='w-full max-w-[1100px] flex flex-col px-6 gap-4 xl:p-0'>
+    <div ref={scope} className='w-full max-w-[1100px] flex flex-col px-6 gap-4 xl:p-0'>
         <Heading 
             title='All Articles'
             description='We share common trends, strategies ideas, opinions, short & long stories from the team behind company.'

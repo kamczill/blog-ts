@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_LATEST_ARTICLE } from '../../graphql/queries/getLastestArticle'
 import { BounceLoader } from 'react-spinners'
+import { motion } from "framer-motion"
+
 
 const Header = () => {
   const parentRef = useRef<HTMLDivElement>(null);
@@ -74,13 +76,19 @@ const Header = () => {
             <div className='absolute max-w-screen w-[101vw] left-[-2px] bottom-[-1px]'>
               <img src={wave} className='w-full'/>
             </div>
-            <div className='text-white absolute top-[35%] w-full flex flex-col justify-center items-center gap-5 z-[0] md:top-[30%] lg:top-[30%]' >
+            <motion.div 
+              initial={{ y: '10%', opacity: .5 }}
+              whileInView={{ y: '0%', opacity: 1}}
+              transition={{ type: "easeIn", duration: .6 }}
+              className='text-white absolute top-[35%] w-full flex flex-col justify-center items-center gap-5 z-[0] md:top-[30%] lg:top-[30%]' >
               <h2 className='text-3xl font-bold'>
                 Our newsroom
               </h2>
-              <div className='flex justify-center'>
-              <Searcher />
-              </div>
+              <motion.div 
+                className='flex justify-center'
+              >
+                <Searcher />
+              </motion.div>
               <div className='hidden mt-[100px] xl:block 2xl:mt-[170px]'>
                 {loading 
                   ? <BounceLoader color="#36d7b7" />
@@ -97,7 +105,7 @@ const Header = () => {
                   content={data?.blogPostCollection.items[0].content}
                 />
               </div>
-            </div>
+            </motion.div>
         </div>
     </div>
   )

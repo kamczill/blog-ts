@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect, useLayoutEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import estateImg from '././../assets/estate.jpg'
 import { capitalizeFirstLetter } from '../utils/textUtils'
@@ -11,10 +11,16 @@ import MoonLoader from 'react-spinners/MoonLoader'
 import InterestingArticlesFeature from '../components/InterestingArticlesFeature'
 import { GET_ALL_ARTICLES } from '../graphql/queries/getAllArticles'
 import { Helmet } from 'react-helmet'
+import { useAnimate, useInView  } from 'framer-motion';
+
 
 const CategoryPage = () => {
     const { category } = useParams()
     const [getPosts, { loading, data, error }] = useLazyQuery(category === 'all' ? GET_ALL_ARTICLES: GET_ARTICLES_BY_CATEGORY)
+    const [scope, animate] = useAnimate()
+    const [featureScope, animateFeature] = useAnimate()
+    const isInView = useInView(scope, {margin: "-20% 0px 0px 0px", once: true})
+    const featureIsInView = useInView(scope, {margin: "-20% 0px 0px 0px", once: true})
 
     const getArticlesByCategory = () => {
         getPosts({variables: {category: category}})
@@ -23,6 +29,18 @@ const CategoryPage = () => {
     const getAllArticles = () => {
         getPosts()
     }
+
+    useLayoutEffect(() => {
+        if (featureIsInView) {
+          animateFeature(featureScope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6} )
+        }
+      },[featureIsInView])
+   
+      useLayoutEffect(() => {
+        if (isInView) {
+          animate(scope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6} )
+        }
+      },[isInView])
 
     useEffect(() => {
         window.scrollTo(0,0)
@@ -44,7 +62,7 @@ const CategoryPage = () => {
         <div className='w-full h-full'>
             <img src={estateImg} className='w-full max-h-[65px] object-cover object-top blur-sm'/>
         </div>
-        <div className='flex flex-col justify-center items-center gap-6 my-10 lg:my-14'>
+        <div ref={scope} className='flex flex-col justify-center items-center gap-6 my-10 lg:my-14'>
             <h2 className='text-2xl font-os font-bold text-[#183B56] lg:text-3xl'>
                 {capitalizeFirstLetter(`${category} Category` || 'All Categories')} 
             </h2>
@@ -67,8 +85,10 @@ const CategoryPage = () => {
                 ) )}
             </div>
         </div>
-        <div className='flex justify-center pt-[96px] pb-10 border-t-2 lg:pt-[130px] xl:mt-8 xl:pt-10'>
-          <InterestingArticlesFeature />
+        <div  className='flex justify-center pt-[96px] pb-10 border-t-2 lg:pt-[130px] xl:mt-8 xl:pt-10'>
+            <div ref={featureScope}>
+                <InterestingArticlesFeature />
+            </div>
         </div>
     </div>
   )
