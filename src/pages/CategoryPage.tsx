@@ -30,13 +30,13 @@ const CategoryPage = () => {
         getPosts()
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (featureIsInView) {
           animateFeature(featureScope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6} )
         }
       },[featureIsInView])
    
-      useLayoutEffect(() => {
+      useEffect(() => {
         if (isInView) {
           animate(scope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6} )
         }
@@ -59,14 +59,14 @@ const CategoryPage = () => {
           <title>{capitalizeFirstLetter(`${category} - heya.` || 'heya.')}</title>
           <meta name="description" content='A blog application about real estates ' />
         </Helmet>
-        <div className='w-full h-full'>
+        <div className='w-full h-full min-h-[50px]'>
             <img src={estateImg} className='w-full max-h-[65px] object-cover object-top blur-sm'/>
         </div>
-        <div ref={scope} className='flex flex-col justify-center items-center gap-6 my-10 lg:my-14'>
+        <div  className='flex flex-col justify-center items-center gap-6 my-10 lg:my-14'>
             <h2 className='text-2xl font-os font-bold text-[#183B56] lg:text-3xl'>
                 {capitalizeFirstLetter(`${category} Category` || 'All Categories')} 
             </h2>
-            <div className='flex flex-col items-center justify-center gap-6 px-6 max-w-[1175px] lg:flex-row lg:flex-wrap'>
+            <div ref={scope} className='flex flex-col items-center justify-center gap-6 px-6 max-w-[1175px] min-h-[1000px] lg:flex-row lg:flex-wrap'>
             { loading && <MoonLoader color="#36d7b7" />}
             { error && <p>Failed to fetch data. Please try again.</p>}
             { data?.blogPostCollection.items.length < 1 && <p>This category doesn't have any blog post yet.</p>}
