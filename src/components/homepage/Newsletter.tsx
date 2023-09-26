@@ -1,18 +1,9 @@
-import React from 'react'
 import wave from './../../assets/wave2.svg'
 import NewsletterFeature from '../NewsletterFeature'
-import {useLayoutEffect} from 'react';
-import { useAnimate, useInView} from 'framer-motion';
+import useAnimateOnView from '../../hooks/useAnimateOnView';
 
 const Newsletter = () => {
-    const [scope, animate] = useAnimate()
-    const isInView = useInView(scope, {margin: "-20% 0px 0px 0px", once: true})
-
-    useLayoutEffect(() => {
-        if (isInView) {
-          animate(scope.current, { opacity: [.1, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6})}
-    },[isInView])
-
+    const [scope] = useAnimateOnView()
 
   return (
     <div>

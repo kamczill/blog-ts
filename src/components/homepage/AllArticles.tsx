@@ -6,19 +6,12 @@ import { useQuery } from '@apollo/client';
 import MoonLoader from 'react-spinners/MoonLoader';
 import { formatDate } from '../../utils/dateUtils';
 import { BlogPost } from '../../types';
-import {useLayoutEffect} from 'react';
-import { useAnimate, useInView} from 'framer-motion';
+import useAnimateOnView from '../../hooks/useAnimateOnView';
 
 
 const AllArticles = () => {
     const { loading, error, data } = useQuery(GET_ALL_ARTICLES);
-    const [scope, animate] = useAnimate()
-    const isInView = useInView(scope, {margin: "-20% 0px 0px 0px", once: true})
-
-    useLayoutEffect(() => {
-        if (isInView) {
-          animate(scope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6})}
-    },[isInView])
+    const [scope] = useAnimateOnView();
 
   return (
     <div ref={scope} className='w-full max-w-[1100px] flex flex-col px-6 gap-4 min-h-[700px] xl:p-0'>

@@ -16,7 +16,6 @@ const Header = () => {
   const { loading, error, data } = useQuery(GET_LATEST_ARTICLE);
   
   useEffect(() => {
-    console.log(data)
     if (error) console.log(error)
   },[error])
 

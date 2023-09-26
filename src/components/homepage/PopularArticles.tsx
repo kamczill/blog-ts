@@ -3,36 +3,22 @@ import ViewAllButton from '../ViewAllButton'
 import Heading from '../Heading'
 import { useQuery } from '@apollo/client';
 import { GET_POPULAR_ARTICLES } from '../../graphql/queries/getPopularArticles';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { formatDate } from '../../utils/dateUtils';
 import { BlogPost } from '../../types';
 import { MoonLoader } from 'react-spinners';
-import { useAnimate, useInView  } from 'framer-motion';
-
+import useAnimateOnView from '../../hooks/useAnimateOnView';
 
 const PopularArticles = () => {
   const { loading, error, data } = useQuery(GET_POPULAR_ARTICLES)
   const [articleItems, setArticleItems] = useState<any>(null)
-  const [scope, animate] = useAnimate()
-  const isInView = useInView(scope, {margin: "-20% 0px 0px 0px", once: true})
-
-
-  // initial={{ y: '10%', opacity: .5 }}
-  //     whileInView={{ y: '0%', opacity: 1}}
-  //     transition={{ type: "easeIn", duration: .6 }}
-  //     viewport={{ once: true, margin: "500px" }}
+  const [scope] = useAnimateOnView()
   
-    useEffect(() => {
-      if(data){
-        setArticleItems(data?.blogPostCollection.items)
-      }
-    }, [data])
-
-    useLayoutEffect(() => {
-      if (isInView) {
-        animate(scope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6} )
-      }
-    },[isInView])
+  useEffect(() => {
+    if(data){
+      setArticleItems(data?.blogPostCollection.items)
+    }
+  }, [data])
 
   return (
     <div 

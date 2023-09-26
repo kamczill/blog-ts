@@ -1,20 +1,13 @@
-import {useLayoutEffect} from 'react';
 import Heading from '../Heading'
 import Gallery from '../Gallery'
 import { useQuery } from '@apollo/client'
 import { GET_CASE_STUDIES_ARTICLES } from '../../graphql/queries/getCaseStudiesArticles'
 import MoonLoader from 'react-spinners/MoonLoader';
-import { useAnimate, useInView} from 'framer-motion';
+import useAnimateOnView from '../../hooks/useAnimateOnView';
 
 const CaseStudies = () => {
   const { data, loading, error } = useQuery(GET_CASE_STUDIES_ARTICLES)
-  const [scope, animate] = useAnimate()
-  const isInView = useInView(scope, {margin: "-20% 0px 0px 0px", once: true})
-
-  useLayoutEffect(() => {
-    if (isInView) {
-      animate(scope.current, { opacity: [.5, 1], y: ["30%", "0%"]}, {ease: "easeIn", duration: .6})}
-  },[isInView])
+  const [scope] = useAnimateOnView();
 
   return (
     <div ref={scope} className='w-full max-w-[1100px] flex flex-col px-6 gap-4 min-h-[400px] xl:p-0'>
