@@ -33,8 +33,8 @@ const Searcher = () => {
 
   return (
     <div className='w-full max-w-[80%]  flex flex-col gap-3 relative md:max-w-[500px]'>
-        <div className='rounded-xl px-4 py-2 w-full bg-white flex gap-5 relative'>
-            <input type='text' name='search' id='search' className='py-2 bg-white w-full text-black font-os' placeholder='Search article...' onChange={e => setSearchValue(e.target.value)} value={searchValue} autoComplete='off'/>
+        <div className='rounded-xl pr-4 py-2 w-full bg-white flex gap-5 relative'>
+            <input type='text' name='search' id='search' className='py-2 pl-4 bg-white w-full text-black font-os focus-visible:outline-none' placeholder='Search article...' onChange={e => setSearchValue(e.target.value)} value={searchValue} autoComplete='off'/>
             <button className='py-2 px-3 rounded-md bg-blue-500 '>Search</button>
             {shouldShowSearch && (
                 <div className='absolute left-0 top-[65px] bg-white w-full min-h-[150px] h-max z-30 rounded-md shadow-md'>
