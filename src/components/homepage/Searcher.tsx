@@ -72,7 +72,13 @@ const Searcher = () => {
         <h4 className='hidden text-lg font-bold md:block'>Popular Tags:</h4>
         <ul className='flex gap-2'>
             {tags.map(tag => (
-                <li onClick={() => handleNavigate(tag)} className='border rounded-md px-3 py-1 flex justify-center items-center text-center backdrop-blur-md hover:cursor-pointer'>{capitalizeFirstLetter(tag)}</li>
+                <li 
+                key={tag}
+                onClick={() => handleNavigate(tag)} 
+                className='border rounded-md px-3 py-1 flex justify-center items-center text-center backdrop-blur-md hover:cursor-pointer'
+                >
+                    {capitalizeFirstLetter(tag)}
+                </li>
             ))}
         </ul>
         </div>        

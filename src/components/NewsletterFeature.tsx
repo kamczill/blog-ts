@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import base from './../assets/base.png'
 
 const NewsletterFeature = () => {
@@ -28,7 +28,7 @@ const NewsletterFeature = () => {
     }, [])
 
   return (
-    <div ref={parentRef} className='relative max-w-[500px] lg:w-max '>
+    <div id='newsletter' ref={parentRef} className='relative max-w-[500px] lg:w-max'>
         <div className='absolute w-[200px] h-[200px] bg-[#1565D8] rounded-md z-0 right-[-10px]  top-[60px] opacity-70 xl:right-[-25px] xl:top-[100px]'>
         </div>
         <div className='absolute w-[200px] h-[200px] bg-[#FFFFFF] rounded-md z-0 bottom-0 left-[-10px] opacity-10 xl:left-[-25px] xl:bottom-[-5px]'>
@@ -38,7 +38,7 @@ const NewsletterFeature = () => {
                 <img src={base} />
             </div>
             <div className='px-2 font-os flex flex-col gap-2'>
-                <h2 className='font-bold text-lg'>The best aticles every week</h2>
+                <h2 className='font-bold text-lg'>The best articles every week</h2>
                 <p className='text-[#5A7184] max-w-[240px]'>
                 Our insurance plans offers are priced the same everywhere else.
                 </p>

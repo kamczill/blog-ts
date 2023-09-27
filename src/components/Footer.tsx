@@ -2,7 +2,7 @@ import { navigation } from "../assets/data"
 
 const Footer = () => {
   return (
-    <footer className='bg-[#0D2436] pt-[100px] pb-5 flex justify-center px-6 xl:px-0 xl:pb-10'>
+    <footer id="footer" className='bg-[#0D2436] pt-[100px] pb-5 flex justify-center px-6 xl:px-0 xl:pb-10'>
       <div className='flex flex-col-reverse items-center gap-12 xl:flex-row xl:justify-between xl:gap-10 max-w-[1100px] w-full'>
         <div className='xl:self-start flex flex-col xl:gap-5'>
           <h2 className='font-os font-semibold text-xl text-white text-center xl:text-4xl xl:text-start'>heya.</h2>

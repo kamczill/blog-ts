@@ -63,3 +63,7 @@
     fill: rgba(255, 255, 255, 0.5);
   }
   
+  .navlink--active{
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
