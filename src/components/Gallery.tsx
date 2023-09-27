@@ -48,7 +48,7 @@ const Gallery = ({slides}: MyComponentProps) => {
         <div ref={sliderRef} className="keen-slider">
           {
             slides?.items.map((item: any) => (
-              <div className="keen-slider__slide">
+              <div key={item.slug} className="keen-slider__slide">
                 <FeaturePost 
                   title={item.title}
                   slug={item.slug}

@@ -34,6 +34,7 @@ const AllArticles = () => {
                     author={`${item.author.name} ${item.author.surname}`}
                     date={formatDate(item.date)}
                     small
+                    key={item.slug}
                 />
             ))}           
         </div>
@@ -49,6 +50,7 @@ const AllArticles = () => {
                     author={`${item.author.name} ${item.author.surname}`}
                     date={formatDate(item.date)}
                     small
+                    key={item.slug}
                 />
             ))}          
             <div className="col-span-2 w-full flex justify-center lg:col-span-1">
@@ -64,6 +66,7 @@ const AllArticles = () => {
                     author={`${item.author.name} ${item.author.surname}`}
                     date={formatDate(item.date)}
                     small
+                    key={item.slug}
                 />
             ))}          
                 </div>

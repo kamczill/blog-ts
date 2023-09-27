@@ -11,11 +11,11 @@ const Footer = () => {
           <div className='w-full grid grid-cols-2 justify-between place-items-center items-start gap-12 lg:grid-cols-4	'>
               {
                 navigation.map(item => (
-                  <div className="w-[120px] flex flex-col">
+                  <div key={item.title} className="w-[120px] flex flex-col">
                     <h3 className='text-[#5A7184] font-bold'>{item.title}</h3>
                     <ul className='mt-8 flex flex-col gap-6'>
                       {item.items.map(itemArr => (
-                        <li className='text-[#959EAD]'><a href='#'>{itemArr}</a></li>
+                        <li key={itemArr} className='text-[#959EAD]'><a href='#'>{itemArr}</a></li>
                       ))}
                     </ul>
                   </div>

@@ -45,6 +45,7 @@ const PopularArticles = () => {
               avatarImg={article.author.avatar.url} 
               author={`${article.author.name} ${article.author.surname}`} 
               date={formatDate(article.date)}
+              key={article.slug}
             />
           ))
         }

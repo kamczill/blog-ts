@@ -37,6 +37,7 @@ const RecentArticles = () => {
                     avatarImg={item.author.avatar.url} 
                     author={`${item.author.name} ${item.author.surname}`} 
                     date={formatDate(item.date)}
+                    key={item.slug}
                 />   
             ))}
             {loading 
