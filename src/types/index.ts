@@ -1,5 +1,3 @@
-import { StringValueNode } from "graphql";
-
 export interface onImageLoadProps {
     onImageLoad?: () => void;
 }

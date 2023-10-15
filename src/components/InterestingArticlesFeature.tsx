@@ -48,7 +48,7 @@ const InterestingArticlesFeature = () => {
           ))
         }
         </div>
-          <ViewAllButton classes={'place-self-center lg:hidden'} />
+          <ViewAllButton classes={'place-self-center lg:hidden'} navigateTo='' />
     </div>
   )
 }
