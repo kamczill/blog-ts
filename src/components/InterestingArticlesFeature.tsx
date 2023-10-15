@@ -17,7 +17,6 @@ const InterestingArticlesFeature = () => {
 
     useEffect(() => {
       if(data){
-        console.log(data?.blogPostCollection.items)
         const shuffleArrayItems = shuffle(data?.blogPostCollection.items)
         setArticleItems(shuffleArrayItems)
       }
