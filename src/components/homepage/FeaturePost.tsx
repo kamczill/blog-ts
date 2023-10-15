@@ -6,7 +6,7 @@ import { truncateToMaxWords } from "../../utils/textUtils";
 import { Link } from "react-router-dom";
 
 
-const FeaturePost = ({onImageLoad, title, avatarImg, author, date, coverImage, content, slug}: featurePostProps) => {
+const FeaturePost = ({onImageLoad, title, avatarImg, coverImage, content, slug}: featurePostProps) => {
   const [excerpt, setExcerpt] = useState<string | null>(null)
   
 

@@ -1,4 +1,3 @@
-import { useState, useEffect} from 'react'
 import { RiArrowRightLine } from 'react-icons/ri'
 import { viewAllButtonProps } from '../types'
 import { useNavigate } from 'react-router-dom'
