@@ -2,6 +2,9 @@
 
 A responsive web application built with React, TypeScript, and Tailwind CSS, featuring a blog-like interface with categories, posts, and search functionality. Integrated with Contentful for content management and designed with a modern UI, this project showcases best practices in web development and design.
 
+([Live Preview](https://main--glittering-gumdrop-1e5a17.netlify.app/))
+
+
 ## Features:
 
 - **Responsive Design:** Designed for various devices, from desktop to mobile.
@@ -56,5 +59,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ### License:
    MIT
-
-   
